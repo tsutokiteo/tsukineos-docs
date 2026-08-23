@@ -1,13 +1,13 @@
 ---
-title: Build Environment
-description: 构建主机依赖与交叉编译说明
+title: "Build Environment"
+description: "构建主机依赖与交叉编译说明"
 ---
 
 # 构建环境
 
 ## 主机要求
 
-- 任意现代 Linux 发行版（推荐 x86_64）
+- 任意现代 Linux 发行版（推荐 x86\_64）
 - 约 20 GB 可用磁盘空间
 - 联网（拉取内核/BusyBox 源码）
 
@@ -31,7 +31,7 @@ make menuconfig   # 在 Settings 中开启 "Build static binary"
 make -j$(nproc)
 ```
 
-## 交叉编译（x86_64 主机构建 ARM64）
+## 交叉编译（x86\_64 主机构建 ARM64）
 
 ```bash
 sudo apt install gcc-aarch64-linux-gnu
@@ -44,6 +44,3 @@ export CROSS_COMPILE=aarch64-linux-gnu-
 
 - 推荐在 TsukineOS 或干净的容器/虚拟机中构建，避免宿主库污染。
 - 各组件的具体编译参数以仓库 `TsukineOS` 当前源码为准。
-```
-
----

@@ -1,11 +1,11 @@
 ---
-title: Build Overview
-description: 从源码构建 TsukineOS（简版流程）
+title: "Build Overview"
+description: "从源码构建 TsukineOS（简版流程）"
 ---
 
 # 构建概览
 
-TsukineOS 基于 Linux 6.6 LTS，用户空间由 BusyBox + dash + 自研工具组成。构建产物为可启动的 initrd 及对应镜像。
+TsukineOS 基于 Linux 6.6 LTS，用户空间由 BusyBox \+ dash \+ 自研工具组成。构建产物为可启动的 initrd 及对应镜像。
 
 ## 构建流程（简版）
 
@@ -31,12 +31,9 @@ cd ..
 
 ## 产物
 
-- x86_64：可启动 ISO（含内核 + initrd）
-- ARM64：可烧录 IMG（含内核 + initrd，适配树莓派类设备）
+- x86\_64：可启动 ISO（含内核 \+ initrd）
+- ARM64：可烧录 IMG（含内核 \+ initrd，适配树莓派类设备）
 
 ## 详细说明
 
 各步骤的依赖与交叉编译配置见 /build-guide/environment。完整、可复现的构建脚本以仓库 `TsukineOS` 源码为准。
-```
-
----

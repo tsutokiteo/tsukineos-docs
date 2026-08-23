@@ -1,6 +1,6 @@
 ---
-title: Command Reference
-description: TsukineOS 命令速查
+title: "Command Reference"
+description: "TsukineOS 命令速查"
 ---
 
 # 命令参考 — Tsukine OS 命令速查
@@ -8,34 +8,34 @@ description: TsukineOS 命令速查
 ## 系统核心命令
 
 | 命令 | 功能 | 示例 |
-|------|------|------|
-| taskmgr / tsukine_top | 任务管理器，显示进程列表 | taskmgr -u （仅用户进程）taskmgr -c （仅内核进程） |
-| net / tsukine_net | 网络配置守护进程 | net & （后台运行） |
-| netui / tsukine_net_ui | 网络流量监控 | netui |
-| ping / tsukine_ping | ICMP 连通性测试 *(注：自研实现)* | ping -c 4 8.8.8.8 |
-| iwr / tsukine_iwr | HTTP 下载工具 | iwr http://example.com/file -o out.txt |
-| reboot / tsukine_reboot | 重启系统 | reboot |
-| shutdown / tsukine_shutdown | 关机 | shutdown |
+| --- | --- | --- |
+| taskmgr / tsukine\_top | 任务管理器，显示进程列表 | taskmgr -u （仅用户进程）taskmgr -c （仅内核进程） |
+| net / tsukine\_net | 网络配置守护进程 | net & （后台运行） |
+| netui / tsukine\_net\_ui | 网络流量监控 | netui |
+| ping / tsukine\_ping | ICMP 连通性测试 _(注：自研实现)_ | ping -c 4 8.8.8.8 |
+| iwr / tsukine\_iwr | HTTP 下载工具 | iwr [http://example.com/file](http://example.com/file) -o out.txt |
+| reboot / tsukine\_reboot | 重启系统 | reboot |
+| shutdown / tsukine\_shutdown | 关机 | shutdown |
 
 ---
 
 ## 包管理命令
 
 | 命令 | 功能 | 示例 |
-|------|------|------|
-| tknpkg install <包名.tkn> | 安装 .tkn 包 | tknpkg install hello-1.0.0.tkn |
-| tknpkg remove <包名> | 卸载已安装的包 | tknpkg remove hello |
+| --- | --- | --- |
+| tknpkg install 【包名.tkn】 | 安装 .tkn 包 | tknpkg install hello-1.0.0.tkn |
+| tknpkg remove 【包名】 | 卸载已安装的包 | tknpkg remove hello |
 | tknpkg list | 列出已安装的包 | tknpkg list |
-| tknpkkj build <目录> | 从源码目录生成 .tkn 包 | tknpkkj build mypkg/ |
+| tknpkg build 【目录】 | 从源码目录生成 .tkn 包 | tknpkg build mypkg/ |
 
 ---
 
 ## 文本编辑与文件查看
 
-*以上命令由 BusyBox 提供，用法与标准 Linux 一致。*
+_以上命令由 BusyBox 提供，用法与标准 Linux 一致。_
 
 | 命令 | 功能 | 示例 |
-|------|------|------|
+| --- | --- | --- |
 | nano | 文本编辑器 | nano /etc/profile |
 | cat | 查看文件内容 | cat /etc/hostname |
 | ls | 列出目录内容 | ls -l /usr/bin/ |
@@ -43,17 +43,17 @@ description: TsukineOS 命令速查
 | mv | 移动或重命名文件 | mv old new |
 | rm | 删除文件 | rm /tmp/test.txt |
 | mkdir | 创建目录 | mkdir /home/user |
-| chmod | 修改文件权限 | chmod +x /usr/bin/script |
+| chmod | 修改文件权限 | chmod \+x /usr/bin/script |
 
 ---
 
 ## Shell 与环境
 
 | 命令 | 功能 | 示例 |
-|------|------|------|
+| --- | --- | --- |
 | dash | 默认 shell（/bin/sh） | 登录后自动进入 |
 | echo | 输出文本 | echo "Hello" |
-| export | 设置环境变量 | export PATH=/usr/bin:$PATH |
+| export | 设置环境变量 | export PATH=/usr/bin:\$PATH |
 | whoami | 显示当前用户名 | whoami |
 | id | 显示用户 ID 和组信息 | id |
 | hostname | 显示或设置主机名 | hostname |
@@ -63,19 +63,19 @@ description: TsukineOS 命令速查
 ## 系统信息与日志
 
 | 命令 | 功能 | 示例 |
-|------|------|------|
+| --- | --- | --- |
 | dmesg | 显示内核日志 | dmesg \| tail -20 |
 | cat /proc/cpuinfo | 查看 CPU 信息 | — |
 | cat /proc/meminfo | 查看内存信息 | — |
 | cat /proc/version | 查看内核版本 | — |
-| cat /var/log/tsukine_net.log | 查看网络配置日志 | — |
+| cat /var/log/tsukine\_net.log | 查看网络配置日志 | — |
 
 ---
 
 ## 用户管理
 
 | 命令 | 功能 | 示例 |
-|------|------|------|
+| --- | --- | --- |
 | login | 登录界面（启动时自动调用） | 开机后显示 login: |
 | su | 切换用户 | su - dmin |
 | whoami | 显示当前用户 | whoami |
@@ -85,10 +85,10 @@ description: TsukineOS 命令速查
 ## 网络相关
 
 | 命令 | 功能 | 示例 |
-|------|------|------|
+| --- | --- | --- |
 | ip addr | 显示网络接口信息 | ip addr show eth0 |
 | ip route | 显示路由表 | ip route |
-| ping | 测试网络连通性 *(注：自研实现)* | ping -c 4 8.8.8.8 |
+| ping | 测试网络连通性 _(注：自研实现)_ | ping -c 4 8.8.8.8 |
 | net | 配置网络（守护进程） | — |
 
 ---
@@ -96,28 +96,28 @@ description: TsukineOS 命令速查
 ## 快捷方式（软链接）
 
 | 实际命令 | 软链接 | 说明 |
-|----------|--------|------|
-| tsukine_top | taskmgr | 任务管理器 |
-| tsukine_net | net | 网络配置 |
-| tsukine_net_ui | netui | 网络监控 |
-| tsukine_ping | ping | ICMP 测试 |
-| tsukine_iwr | iwr | HTTP 下载 |
-| tsukine_reboot | reboot | 重启 |
-| tsukine_shutdown | shutdown | 关机 |
+| --- | --- | --- |
+| tsukine\_top | taskmgr | 任务管理器 |
+| tsukine\_net | net | 网络配置 |
+| tsukine\_net\_ui | netui | 网络监控 |
+| tsukine\_ping | ping | ICMP 测试 |
+| tsukine\_iwr | iwr | HTTP 下载 |
+| tsukine\_reboot | reboot | 重启 |
+| tsukine\_shutdown | shutdown | 关机 |
 
 ---
 
 ## 配置文件路径
 
 | 文件 | 用途 |
-|------|------|
+| --- | --- |
 | /etc/profile | 环境变量和提示符设置 |
 | /etc/passwd | 用户账户信息 |
 | /etc/shadow | 用户密码（加密） |
 | /etc/group | 用户组信息 |
 | /etc/hostname | 主机名 |
 | /etc/network/interfaces | 网络配置（静态 IP / DHCP） |
-| /var/log/tsukine_net.log | 网络服务日志 |
+| /var/log/tsukine\_net.log | 网络服务日志 |
 | /var/lib/tknpkg/db | 已安装包数据库 |
 
 ---
@@ -125,7 +125,7 @@ description: TsukineOS 命令速查
 ## 提示符说明
 
 | 用户 | 提示符 | 示例 |
-|------|--------|------|
-| root | root@tsukine:\W# | root@tsukine:/# |
-| dmin | dmin@tsukine:\W$ | dmin@tsukine:/$ |
-| 其他用户 | user@tsukine:\W$ | user@tsukine:/$ |
+| --- | --- | --- |
+| root | root@tsukine:\\W# | root@tsukine:/# |
+| dmin | dmin@tsukine:\\W\$ | dmin@tsukine:/\$ |
+| 其他用户 | user@tsukine:\\W\$ | user@tsukine:/\$ |
