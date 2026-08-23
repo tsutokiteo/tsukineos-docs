@@ -1,21 +1,49 @@
 ---
-title: Hardware Test Records
-description: TsukineOS 实机/虚拟机启动记录
+title: Build Environment
+description: 构建主机依赖与交叉编译说明
 ---
 
-# 硬件测试记录
+# 构建环境
 
-## 已验证
+## 主机要求
 
-| 环境 | 架构 | 状态 | 备注 |
-|------|------|------|------|
-| QEMU x86_64 | x86_64 | ✅ 启动到 CLI | Indev-0.1.1 |
-| 实体机 x86_64（部分机型） | x86_64 | ✅ 启动成功 | Indev-0.1.1 真实硬件启动成功，UEFI 适配进行中 |
-| ARM64 设备 | ARM64 | 🧪 实验中 | IMG 可烧写，外设支持不全 |
+- 任意现代 Linux 发行版（推荐 x86_64）
+- 约 20 GB 可用磁盘空间
+- 联网（拉取内核/BusyBox 源码）
 
-## 报告格式
+## 依赖（Debian/Ubuntu）
 
-踩到坑请在 GitHub Issue 附：
-- 镜像版本（如 Indev-0.1.1）
-- 设备型号 / QEMU 参数
-- 卡在哪一步（BIOS/内核 panic/login 后）
+```bash
+sudo apt install build-essential bc flex bison libssl-dev libelf-dev \
+  wget cpio gzip xz-utils
+```
+
+## 依赖（Arch）
+
+```bash
+sudo pacman -S base-devel openssl elfutils wget cpio gzip xz
+```
+
+## 静态编译 BusyBox
+
+```bash
+make menuconfig   # 在 Settings 中开启 "Build static binary"
+make -j$(nproc)
+```
+
+## 交叉编译（x86_64 主机构建 ARM64）
+
+```bash
+sudo apt install gcc-aarch64-linux-gnu
+export ARCH=arm64
+export CROSS_COMPILE=aarch64-linux-gnu-
+# 内核、BusyBox、自研工具均在此环境下编译
+```
+
+## 提示
+
+- 推荐在 TsukineOS 或干净的容器/虚拟机中构建，避免宿主库污染。
+- 各组件的具体编译参数以仓库 `TsukineOS` 当前源码为准。
+```
+
+---
