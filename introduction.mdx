@@ -1,40 +1,48 @@
 ---
 title: Introduction
-description: TsukineOS — 为音乐创作者打造的轻量 Linux 发行版（命令行阶段）
+description: TsukineOS —— 为音乐创作者打造的轻量级 Linux 发行版
 ---
 
 # TsukineOS
 
-TsukineOS 是一个基于 **Linux 6.6 LTS** 的轻量级操作系统，主要面向音乐创作者。当前处于 **Alpha / 命令行阶段**，没有 GUI，启动后直接进入 shell——但底层音频链路、包管理与网络栈已经能跑。
+TsukineOS 是一个基于 **Linux 6.6 LTS** 的轻量级操作系统，目标是为音乐创作者提供一个**轻量、可控、开箱即用**的 Linux 环境。当前处于 **Alpha / Infdev（底层重构）阶段**，尚无图形界面，启动后进入命令行；底层、包管理与网络栈已可用。
 
 <Note>
-  当前版本为 Indev-0.1.1。x86_64 因主力设备维修暂歇，ARM64 持续推进。仅建议在闲置机 / 虚拟机里试，别上生产机。
+  当前已发布 **Infdev-0.2.4**（ARM64 移植完成，x86_64 实机适配持续推进）。系统仍属开发期，建议在闲置机或虚拟机中体验，勿用于生产环境。
 </Note>
 
-## 它现在能做什么
+## 核心定位
 
-- 实体机 / QEMU 启动到命令行
-- 基础网络（`net`、`ping`、`iwr` 拉取资源）
-- 自带包管理 `tknpkg` 安装 / 更新组件
-- 命令行工具链 `tsukine_top` 等
-- ARM64 镜像（`.img`）可刷树莓派类设备
+- **轻量**：最小化用户空间（BusyBox + dash），低资源占用
+- **可控**：自研任务 / 网络 / 包管理工具链，行为透明
+- **开箱即用**：镜像即成品系统，写入即可启动
 
-## 它现在不能做什么
+## 当前能力
 
-- 没有桌面环境 / 窗口管理器（GUI 在下一阶段）
-- 不是成品 DAW 系统，目前是"能启动的底座"
-- x86_64 ISO 实机适配仍在进行（UEFI 引导支持完善中）
+- x86_64 与 ARM64 **双架构镜像**（ISO / IMG）
+- 持久化存储、包管理工具、网络层已重构完成
+- 自研工具：`taskmgr`（任务管理）、`net`（网络配置）、`ping`（ICMP）、`iwr`（HTTP 下载）、`tknpkg`（包管理）、`tknpkkj`（打包）
+- ARM64 已在 Redmi Pad SE 上完成构建，可适配树莓派等 ARM 设备
 
-## 架构与协议
+## 当前限制
 
-- 内核：Linux 6.6 LTS
-- 架构：x86_64（ISO）、ARM64（IMG）
-- 协议：GPLv2
-- 源码：https://github.com/tsutokiteo/TsukineOS
+- 无图形界面（GUI 计划在 Alpha-0.3.0）
+- x86_64 实体机 UEFI/BIOS 引导与驱动加载仍在适配
+
+## 技术底座
+
+| 项目 | 信息 |
+|------|------|
+| 内核 | Linux 6.6 LTS |
+| 架构 | x86_64 / ARM64 |
+| 用户空间 | BusyBox + dash |
+| 协议 | 开源（详见仓库） |
+| 仓库 | https://github.com/tsutokiteo/TsukineOS |
 
 ## 下一步
 
-- /installation — 拿 ISO/IMG 跑起来
-- /first-boot — 登录、联网、装包
-- /reference/commands — `tknpkg` / `tsukine_top` 怎么用
-
+- [安装](/installation) — 获取镜像并启动
+- [首次启动](/first-boot) — 登录、联网、装包
+- [命令参考](/reference/commands) — 自研工具链用法
+- [构建指南](/build-guide/overview) — 从源码构建
+- [路线图](/project/roadmap) — 版本规划
