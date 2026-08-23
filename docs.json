@@ -1,34 +1,40 @@
 {
   "name": "TsukineOS Docs",
-  "theme": "mint",
-  "navigation": [
-    {
-      "group": "Getting Started",
-      "pages": [
-        "introduction",
-        "installation",
-        "first-boot"
-      ]
-    },
-    {
-      "group": "Build Guide",
-      "pages": [
-        "build-guide/overview",
-        "build-guide/environment"
-      ]
-    },
-    {
-      "group": "Reference",
-      "pages": [
-        "reference/commands",
-        "hardware/test-records"
-      ]
-    },
-    {
-      "group": "Project",
-      "pages": [
-        "project/roadmap"
-      ]
-    }
-  ]
+  "colors": {
+    "primary": "#7c3aed",
+    "light": "#a78bfa",
+    "dark": "#5b21b6"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "introduction",
+          "installation",
+          "first-boot"
+        ]
+      },
+      {
+        "group": "Build Guide",
+        "pages": [
+          "build-guide/overview",
+          "build-guide/environment"
+        ]
+      },
+      {
+        "group": "Reference",
+        "pages": [
+          "reference/commands",
+          "hardware/test-records"
+        ]
+      },
+      {
+        "group": "Project",
+        "pages": [
+          "project/roadmap"
+        ]
+      }
+    ]
+  }
 }
