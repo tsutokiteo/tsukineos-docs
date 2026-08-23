@@ -1,27 +1,175 @@
 ---
 title: Command Reference
-description: TsukineOS 自带命令速查
+description: TsukineOS 系统命令与工具参考手册
 ---
 
 # 命令参考
+
+> **注**：以上为 Indev-0.1.x ~ Indev-0.2.4 已暴露的命令子集，后续版本会有变动，以 `tknpkg list` 与实际 binary 为准。
 
 ## 系统
 
 | 命令 | 说明 |
 |------|------|
-| `tsukine_top` | 查看 CPU / 内存 / 进程概况 |
-| `tknpkg update` | 刷新包索引 |
-| `tknpkg install <pkg>` | 安装包 |
+| `tsukine_top` | 查看 CPU / 内存 / 进程概况（自研 top 替代） |
+| `tknpkg update` | 刷新包索引（自研包管理器） |
+| `tknpkg install <pkg>` | 安装包（支持本地/远程包） |
 | `tknpkg remove <pkg>` | 卸载包 |
 | `tknpkg list` | 已装包列表 |
+| `taskmgr` | 任务管理器（查看/终止进程） |
+| `iwr <url>` | 下载单个文件到当前目录（自研 wget 替代） |
+| `ping <host>` | ICMP 连通性测试（BusyBox 提供） |
+| `netstat` | 查看网络连接/监听端口（BusyBox 提供） |
+| `ifconfig` | 查看/配置网络接口（BusyBox 提供） |
+| `ip addr` | 查看 IP 地址（BusyBox 提供） |
+| `ps` | 查看当前进程（BusyBox 提供） |
+| `kill <pid>` | 终止指定 PID 进程（BusyBox 提供） |
+| `top` | 实时进程监控（BusyBox 提供，可选） |
+| `df` | 查看磁盘空间使用情况（BusyBox 提供） |
+| `du` | 查看目录占用空间（BusyBox 提供） |
+| `mount` | 挂载文件系统（BusyBox 提供） |
+| `umount` | 卸载文件系统（BusyBox 提供） |
+| `reboot` | 重启系统（BusyBox 提供） |
+| `poweroff` | 关机（BusyBox 提供） |
+| `shutdown` | 关机（BusyBox 提供） |
+| `clear` | 清屏（Dash/BusyBox 提供） |
+| `echo` | 输出文本（Dash/BusyBox 提供） |
+| `ls` | 列出目录内容（Dash/BusyBox 提供） |
+| `cd` | 切换目录（Dash/BusyBox 提供） |
+| `pwd` | 显示当前路径（Dash/BusyBox 提供） |
+| `mkdir` | 创建目录（Dash/BusyBox 提供） |
+| `rmdir` | 删除空目录（Dash/BusyBox 提供） |
+| `rm` | 删除文件/目录（Dash/BusyBox 提供） |
+| `cp` | 复制文件/目录（Dash/BusyBox 提供） |
+| `mv` | 移动/重命名文件（Dash/BusyBox 提供） |
+| `cat` | 查看文件内容（Dash/BusyBox 提供） |
+| `less` | 分页查看文件（BusyBox 提供） |
+| `grep` | 文本搜索（BusyBox 提供） |
+| `find` | 查找文件（BusyBox 提供） |
+| `chmod` | 修改文件权限（BusyBox 提供） |
+| `chown` | 修改文件所有者（BusyBox 提供） |
+| `ln` | 创建软链接（BusyBox 提供） |
+| `touch` | 创建空文件（Dash/BusyBox 提供） |
+| `head` | 查看文件开头（BusyBox 提供） |
+| `tail` | 查看文件结尾（BusyBox 提供） |
+| `tar` | 打包/解包（BusyBox 提供） |
+| `gzip` | 压缩/解压（BusyBox 提供） |
+| `gunzip` | 解压 gzip 文件（BusyBox 提供） |
+| `unzip` | 解压 zip 文件（BusyBox 提供） |
+| `which` | 查找命令路径（BusyBox 提供） |
+| `whoami` | 显示当前用户（Dash/BusyBox 提供） |
+| `id` | 显示用户 ID（BusyBox 提供） |
+| `passwd` | 修改密码（BusyBox 提供） |
+| `su` | 切换用户（BusyBox 提供） |
+| `sudo` | 以超级用户执行（BusyBox 提供，若启用） |
+| `date` | 显示/设置系统时间（BusyBox 提供） |
+| `cal` | 显示日历（BusyBox 提供） |
+| `bc` | 计算器（BusyBox 提供） |
+| `expr` | 表达式计算（BusyBox 提供） |
+| `test` | 条件测试（BusyBox 提供） |
+| `sleep` | 暂停指定秒数（BusyBox 提供） |
+| `wait` | 等待进程结束（BusyBox 提供） |
+| `exit` | 退出当前 shell（Dash/BusyBox 提供） |
+| `logout` | 登出（Dash/BusyBox 提供） |
+| `history` | 查看命令历史（Dash/BusyBox 提供） |
+| `alias` | 设置别名（Dash/BusyBox 提供） |
+| `unalias` | 取消别名（Dash/BusyBox 提供） |
+
+---
 
 ## 网络
 
 | 命令 | 说明 |
 |------|------|
-| `net scan` | 扫描无线 SSID |
-| `net connect <ssid>` | 连接 Wi-Fi |
-| `ping <host>` | ICMP 连通性 |
-| `iwr <url>` | 下载单个文件到当前目录 |
+| `net scan` | 扫描无线 SSID（自研 Wi-Fi 扫描工具） |
+| `net connect <ssid>` | 连接 Wi-Fi（自研 Wi-Fi 连接工具） |
+| `ping <host>` | ICMP 连通性测试（BusyBox 提供） |
+| `iwr <url>` | 下载单个文件到当前目录（自研 wget 替代） |
+| `wget` | 下载文件（BusyBox 提供，可选） |
+| `curl` | 下载/上传文件（BusyBox 提供，可选） |
+| `telnet` | 远程登录（BusyBox 提供，可选） |
+| `ssh` | SSH 客户端（BusyBox 提供，若启用） |
+| `scp` | 安全复制（BusyBox 提供，若启用） |
+| `netstat` | 查看网络连接/监听端口（BusyBox 提供） |
+| `ifconfig` | 查看/配置网络接口（BusyBox 提供） |
+| `ip addr` | 查看 IP 地址（BusyBox 提供） |
+| `ip route` | 查看路由表（BusyBox 提供） |
+| `route` | 查看/设置路由（BusyBox 提供） |
+| `nslookup` | DNS 查询（BusyBox 提供） |
+| `dig` | DNS 查询（BusyBox 提供，若启用） |
+| `host` | DNS 查询（BusyBox 提供，若启用） |
+| `ftp` | FTP 客户端（BusyBox 提供，可选） |
+| `tftp` | TFTP 客户端（BusyBox 提供，可选） |
+| `dhclient` | DHCP 客户端（BusyBox 提供） |
+| `udhcpc` | 轻量级 DHCP 客户端（BusyBox 提供） |
 
-> 注：以上为 Indev-0.1.x 已暴露的命令子集，后续版本会有变动，以 `tknpkg list` 与实际 binary 为准。
+---
+
+## 包管理
+
+| 命令 | 说明 |
+|------|------|
+| `tknpkg update` | 刷新包索引 |
+| `tknpkg install <pkg>` | 安装包 |
+| `tknpkg remove <pkg>` | 卸载包 |
+| `tknpkg list` | 已装包列表 |
+| `tknpkg search <keyword>` | 搜索包（可选，若实现） |
+| `tknpkg info <pkg>` | 查看包信息（可选，若实现） |
+
+---
+
+## 开发工具（可选）
+
+| 命令 | 说明 |
+|------|------|
+| `gcc` | GNU 编译器（若安装） |
+| `make` | 构建工具（若安装） |
+| `git` | 版本控制（若安装） |
+| `vim` | 文本编辑器（若安装） |
+| `nano` | 文本编辑器（若安装） |
+| `python3` | Python 解释器（若安装） |
+| `perl` | Perl 解释器（若安装） |
+| `bash` | Bash shell（若安装，默认是 Dash） |
+
+---
+
+## 提示
+
+- **自研命令**：`tsukine_top`, `tknpkg`, `taskmgr`, `net`, `iwr` 是 TsukineOS 自编译的工具，源码位于 `src/tools/`。
+- **BusyBox 命令**：大部分基础命令由 BusyBox 提供，静态编译，无外部依赖。
+- **Dash 命令**：Shell 内置命令（如 `cd`, `echo`, `pwd`）由 Dash 提供，轻量快速。
+- **版本差异**：不同版本（Indev-0.1.x vs Indev-0.2.4）命令可能有增减，请以 `tknpkg list` 和实际 binary 为准。
+- **扩展**：可通过 `tknpkg install <pkg>` 安装更多工具（如 `vim`, `git`, `python3` 等）。
+
+---
+
+## 示例：常用命令组合
+
+```bash
+# 查看系统资源
+tsukine_top
+
+# 更新包索引并安装 vim
+tknpkg update
+tknpkg install vim
+
+# 扫描并连接 Wi-Fi
+net scan
+net connect MyWiFi
+
+# 下载文件
+iwr https://example.com/file.txt
+
+# 查看网络接口
+ifconfig
+ip addr
+
+# 查看进程
+ps
+top
+
+# 重启系统
+reboot
+```
+
+---
