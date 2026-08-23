@@ -1,10 +1,6 @@
 {
   "name": "TsukineOS Docs",
-  "colors": {
-    "primary": "#7c3aed",
-    "light": "#a78bfa",
-    "dark": "#5b21b6"
-  },
+  "theme": "mint",
   "navigation": [
     {
       "group": "Getting Started",
