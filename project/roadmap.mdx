@@ -1,26 +1,32 @@
 ---
 title: Roadmap
-description: TsukineOS 当前进度与下一步
+description: TsukineOS 版本路线图
 ---
 
 # 路线图
 
 ## 已完成
+
 - Linux 6.6 LTS 底座
-- 命令行工具链（tsukine_top / net / ping / iwr）
-- 包管理 tknpkg
-- 持久化存储、网络栈重构
-- ARM64 移植、IMG 镜像
-- Indev-0.1.1 x86_64 实机启动
+- 持久化存储
+- 包管理工具（`tknpkg`）
+- 网络层重构（`net`）
+- 自研工具链：`taskmgr` / `net` / `ping` / `iwr` / `tknpkg` / `tknpkkj`
+- ARM64 移植完成（Redmi Pad SE 验证）
+- Infdev-0.2.4 双架构镜像发布
 
 ## 进行中
-- x86_64 实体机启动适配
-- UEFI 引导支持
-- ARM64 外设完善
 
-## 下一阶段（Alpha）
-- 图形外壳（GUI）雏形
-- 音频链路（PipeWire/JACK 类）接入命令行底座
-- 安装器前期设计
+- **Alpha-0.3.0** — 图形界面基础：X11 / TinyX + 窗口管理器 + 守护程序（开发中）
+- x86_64 实体机 UEFI/BIOS 引导与驱动加载收尾（Infdev-0.2.4 后续小版本）
 
-协议 GPLv2，仓库：https://github.com/tsutokiteo/TsukineOS
+## 计划中
+
+- **正式版 2.0.0** — 集成音乐创作工具
+
+## 参与
+
+仓库与问题反馈：https://github.com/tsutokiteo/TsukineOS
+```
+
+---
