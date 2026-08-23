@@ -1,1 +1,27 @@
+---
+title: Command Reference
+description: TsukineOS 自带命令速查
+---
 
+# 命令参考
+
+## 系统
+
+| 命令 | 说明 |
+|------|------|
+| `tsukine_top` | 查看 CPU / 内存 / 进程概况 |
+| `tknpkg update` | 刷新包索引 |
+| `tknpkg install <pkg>` | 安装包 |
+| `tknpkg remove <pkg>` | 卸载包 |
+| `tknpkg list` | 已装包列表 |
+
+## 网络
+
+| 命令 | 说明 |
+|------|------|
+| `net scan` | 扫描无线 SSID |
+| `net connect <ssid>` | 连接 Wi-Fi |
+| `ping <host>` | ICMP 连通性 |
+| `iwr <url>` | 下载单个文件到当前目录 |
+
+> 注：以上为 Indev-0.1.x 已暴露的命令子集，后续版本会有变动，以 `tknpkg list` 与实际 binary 为准。
