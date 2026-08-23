@@ -1,1 +1,21 @@
+---
+title: Hardware Test Records
+description: TsukineOS 实机/虚拟机启动记录
+---
 
+# 硬件测试记录
+
+## 已验证
+
+| 环境 | 架构 | 状态 | 备注 |
+|------|------|------|------|
+| QEMU x86_64 | x86_64 | ✅ 启动到 CLI | Indev-0.1.1 |
+| 实体机 x86_64（部分机型） | x86_64 | ✅ 启动成功 | Indev-0.1.1 真实硬件启动成功，UEFI 适配进行中 |
+| ARM64 设备 | ARM64 | 🧪 实验中 | IMG 可烧写，外设支持不全 |
+
+## 报告格式
+
+踩到坑请在 GitHub Issue 附：
+- 镜像版本（如 Indev-0.1.1）
+- 设备型号 / QEMU 参数
+- 卡在哪一步（BIOS/内核 panic/login 后）
