@@ -1,5 +1,6 @@
 {
   "name": "TsukineOS Docs",
+  "theme": "mint",
   "colors": {
     "primary": "#7c3aed",
     "light": "#a78bfa",
