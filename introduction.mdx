@@ -1,1 +1,40 @@
+---
+title: Introduction
+description: TsukineOS — 为音乐创作者打造的轻量 Linux 发行版（命令行阶段）
+---
+
+# TsukineOS
+
+TsukineOS 是一个基于 **Linux 6.6 LTS** 的轻量级操作系统，主要面向音乐创作者。当前处于 **Alpha / 命令行阶段**，没有 GUI，启动后直接进入 shell——但底层音频链路、包管理与网络栈已经能跑。
+
+<Note>
+  当前版本为 Indev-0.1.1。x86_64 因主力设备维修暂歇，ARM64 持续推进。仅建议在闲置机 / 虚拟机里试，别上生产机。
+</Note>
+
+## 它现在能做什么
+
+- 实体机 / QEMU 启动到命令行
+- 基础网络（`net`、`ping`、`iwr` 拉取资源）
+- 自带包管理 `tknpkg` 安装 / 更新组件
+- 命令行工具链 `tsukine_top` 等
+- ARM64 镜像（`.img`）可刷树莓派类设备
+
+## 它现在不能做什么
+
+- 没有桌面环境 / 窗口管理器（GUI 在下一阶段）
+- 不是成品 DAW 系统，目前是"能启动的底座"
+- x86_64 ISO 实机适配仍在进行（UEFI 引导支持完善中）
+
+## 架构与协议
+
+- 内核：Linux 6.6 LTS
+- 架构：x86_64（ISO）、ARM64（IMG）
+- 协议：GPLv2
+- 源码：https://github.com/tsutokiteo/TsukineOS
+
+## 下一步
+
+- /installation — 拿 ISO/IMG 跑起来
+- /first-boot — 登录、联网、装包
+- /reference/commands — `tknpkg` / `tsukine_top` 怎么用
 
