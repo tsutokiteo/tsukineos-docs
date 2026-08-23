@@ -6,6 +6,12 @@
     "light": "#a78bfa",
     "dark": "#5b21b6"
   },
+  "footer": {
+    "copyright": "© 2024-2026 TsutokiTeo. All rights reserved.",
+    "socials": {
+      "github": "https://github.com/tsutokiteo/TsukineOS"
+    }
+  },
   "navigation": {
     "groups": [
       {
