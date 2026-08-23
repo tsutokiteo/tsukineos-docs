@@ -1,13 +1,38 @@
 {
-  "name": "Tsukineos Docs",
-  "logo": {
-    "src": "/logo.png",
-    "alt": "Tsukineos Logo"
+  "name": "TsukineOS Docs",
+  "colors": {
+    "primary": "#7c3aed",
+    "light": "#a78bfa",
+    "dark": "#5b21b6"
   },
-  "pages": [
+  "navigation": [
     {
-      "name": "欢迎",
-      "file": "index.md"
+      "group": "Getting Started",
+      "pages": [
+        "introduction",
+        "installation",
+        "first-boot"
+      ]
+    },
+    {
+      "group": "Build Guide",
+      "pages": [
+        "build-guide/overview",
+        "build-guide/environment"
+      ]
+    },
+    {
+      "group": "Reference",
+      "pages": [
+        "reference/commands",
+        "hardware/test-records"
+      ]
+    },
+    {
+      "group": "Project",
+      "pages": [
+        "project/roadmap"
+      ]
     }
   ]
 }
