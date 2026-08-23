@@ -1,0 +1,13 @@
+{
+  "name": "Tsukineos Docs",
+  "logo": {
+    "src": "/logo.png",
+    "alt": "Tsukineos Logo"
+  },
+  "pages": [
+    {
+      "name": "欢迎",
+      "file": "index.md"
+    }
+  ]
+}
