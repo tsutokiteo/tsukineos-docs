@@ -1,47 +1,55 @@
 ---
 title: Installation
-description: 获取 TsukineOS 的 ISO 与 IMG 镜像并启动
+description: 获取 TsukineOS 镜像并启动（x86_64 ISO / ARM64 IMG）
 ---
 
 # 安装（镜像启动）
 
-TsukineOS 目前**没有图形安装器**。你拿到的是成品镜像：x86_64 用 `.iso`，ARM64 用 `.img`。
+TsukineOS 当前**没有图形安装器**，提供的是成品镜像：x86_64 使用 `.iso`，ARM64 使用 `.img`。
 
 ## 获取镜像
 
-前往 GitHub Releases：
+前往 GitHub Releases 下载最新版（当前 **Infdev-0.2.4**）：
 
 https://github.com/tsutokiteo/TsukineOS/releases
 
 | 架构 | 文件 | 用途 |
 |------|------|------|
-| x86_64 | `tsukineos-indev0.1.1-x86_64.iso` | 物理机 / QEMU / Ventoy |
-| ARM64 | `tsukineos-indev0.1.1-arm64.img` | 树莓派类设备烧录到 SD 卡 |
+| x86_64 | `tsukineos-infdev0.2.4-x86_64.iso` | 物理机 / QEMU / Ventoy |
+| ARM64 | `tsukineos-infdev0.2.4-arm64.img` | 树莓派等 ARM 设备（SD 卡烧录） |
 
-## x86_64：三种跑法
+## x86_64：三种启动方式
 
-**1. 虚拟机（最省事，推荐先试）**
+**1. QEMU（推荐先试，最稳）**
 ```bash
-qemu-system-x86_64 -m 2048 -cdrom tsukineos-indev0.1.1-x86_64.iso -boot d
+qemu-system-x86_64 -m 2048 \
+  -cdrom tsukineos-infdev0.2.4-x86_64.iso -boot d
 ```
 
 **2. Ventoy U 盘**
-把 ISO 扔进 Ventoy 分区，开机选它。
+将 ISO 放入 Ventoy 分区，开机从 Ventoy 菜单选择该 ISO。
 
-**3. 裸机烧录（谨慎）**
+**3. 裸机直写（谨慎）**
 ```bash
-sudo dd if=tsukineos-indev0.1.1-x86_64.iso of=/dev/sdX bs=4M status=progress
+sudo dd if=tsukineos-infdev0.2.4-x86_64.iso of=/dev/sdX bs=4M status=progress
 ```
-> `/dev/sdX` 别写错，会清空整盘。
+> `sdX` 为目标盘符，写错会清空整盘数据。
 
-## ARM64：烧 SD 卡
+## ARM64：烧录 SD 卡
 
 ```bash
-xzcat tsukineos-indev0.1.1-arm64.img.xz | sudo dd of=/dev/mmcblk0 bs=4M status=progress
+xzcat tsukineos-infdev0.2.4-arm64.img.xz | sudo dd of=/dev/mmcblk0 bs=4M status=progress
 ```
-插树莓派类设备开机。
+烧写完成后插入树莓派类设备开机即可。
 
-<Warning>
-  当前 x86_64 实机启动在部分机型上仍需排查 UEFI/ACPI，虚拟机是最稳的验证路径。
-</Warning>
+## 系统要求
+
+| 项目 | 最低 | 建议 |
+|------|------|------|
+| CPU | x86_64 或 ARM64 | x86_64 |
+| 内存 | 512 MB | 2 GB |
+| 存储 | 足够存放镜像 | 16 GB 以上 |
+| 其他 | — | 低延迟音频设备（GUI 就绪后使用） |
 ```
+
+---
