@@ -5,41 +5,95 @@ description: 命令行下的登录、联网与包管理
 
 # 首次启动
 
-启动完停在一个登录提示符（具体 tty 名称以当期构建为准）。
+启动后进入命令行登录提示符（具体 tty 以当期构建为准）。
+
+## 登录
+
+使用镜像预设的账号密码登录（具体凭据以发布页/镜像说明为准）。若未单独说明，可尝试默认用户名 `tsukine`。
 
 ## 联网
 
-命令行阶段用自带工具：
+命令行阶段使用自研网络工具 `net`：
 
 ```bash
-net scan            # 扫可用 SSID（无线）
-net connect <ssid>  # 连 Wi-Fi
-ping tsukineos.top  # 验证
+net scan            # 扫描可用 Wi-Fi SSID
+net connect <ssid>  # 连接指定无线网
+ping tsukineos.top  # 验证连通性
 ```
 
-有线一般启动即 UP。
+有线网络通常启动即连通。
 
 ## 包管理 tknpkg
 
 ```bash
-tknpkg update       # 刷新索引
+tknpkg update       # 刷新包索引
 tknpkg install <pkg>
 tknpkg remove <pkg>
-tknpkg list
+tknpkg list         # 已安装包
 ```
 
-## 自带工具链
+## 打包 .tkn 包（可选）
 
-| 命令 | 作用 |
-|------|------|
-| `tsukine_top` | 系统状态概览 |
-| `net` | 网络扫描 / 连接 |
-| `ping` | 连通性 |
-| `iwr` | 简易 HTTP 拉取（类似 curl/wget 子集） |
+```bash
+tknpkkj <目录或文件>  # 生成 .tkn 包
+```
+
+## 状态查看
+
+```bash
+taskmgr             # 任务/资源概览（同 tsukine_top）
+```
 
 ## 关机
 
-```bash
-tknpkg shutdown     # 或直接用 shell 内置
+按当期构建提供的关机方式退出（如 `poweroff` 或 `exit` 后由 init 处理）。
 ```
+
+---
+
+## `reference/commands.mdx`
+
+```mdx
+---
+title: Command Reference
+description: TsukineOS 自研工具链命令速查
+---
+
+# 命令参考
+
+TsukineOS 在 BusyBox + dash 基础上提供了若干自研工具，命名上多带有 `tsukine_` 前缀的等价入口。
+
+## 系统 / 任务
+
+| 命令 | 等价/说明 |
+|------|-----------|
+| `taskmgr` | 任务管理器 / 资源概览 |
+| `tsukine_top` | `taskmgr` 的别名入口 |
+
+## 网络
+
+| 命令 | 等价/说明 |
+|------|-----------|
+| `net` | 网络配置守护进程入口 |
+| `tsukine_net` | `net` 的等价入口 |
+| `ping` | ICMP 连通性测试 |
+| `tsukine_ping` | `ping` 的等价入口 |
+
+## 下载 / 包管理
+
+| 命令 | 说明 |
+|------|------|
+| `iwr` | HTTP 下载工具 |
+| `tsukine_iwr` | `iwr` 的等价入口 |
+| `tknpkg update` | 刷新包索引 |
+| `tknpkg install <pkg>` | 安装包 |
+| `tknpkg remove <pkg>` | 卸载包 |
+| `tknpkg list` | 列出已装包 |
+| `tknpkkj <目标>` | 打包工具，生成 `.tkn` 包 |
+
+<Note>
+  以上为 Infdev-0.2.4 暴露的命令子集，随版本演进会有增减，以实际镜像中 `which <cmd>` 与 `tknpkg list` 为准。
+</Note>
 ```
+
+---
