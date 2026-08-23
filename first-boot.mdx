@@ -1,1 +1,45 @@
+---
+title: First Boot
+description: 命令行下的登录、联网与包管理
+---
 
+# 首次启动
+
+启动完停在一个登录提示符（具体 tty 名称以当期构建为准）。
+
+## 联网
+
+命令行阶段用自带工具：
+
+```bash
+net scan            # 扫可用 SSID（无线）
+net connect <ssid>  # 连 Wi-Fi
+ping tsukineos.top  # 验证
+```
+
+有线一般启动即 UP。
+
+## 包管理 tknpkg
+
+```bash
+tknpkg update       # 刷新索引
+tknpkg install <pkg>
+tknpkg remove <pkg>
+tknpkg list
+```
+
+## 自带工具链
+
+| 命令 | 作用 |
+|------|------|
+| `tsukine_top` | 系统状态概览 |
+| `net` | 网络扫描 / 连接 |
+| `ping` | 连通性 |
+| `iwr` | 简易 HTTP 拉取（类似 curl/wget 子集） |
+
+## 关机
+
+```bash
+tknpkg shutdown     # 或直接用 shell 内置
+```
+```
